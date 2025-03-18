@@ -15,6 +15,7 @@ const student= mongoose.Schema({
                 }],
 
         attend:[{
+                date:{type:String},
                 mon:{type:String},
                 tue:{type:String},
                 wed:{type:String},

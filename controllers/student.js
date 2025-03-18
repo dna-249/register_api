@@ -12,42 +12,43 @@ const postStudent = async(req,res) => {
             email:email,
             
             subject:[{
-                    eng:name,
-                    math:name,
-                    chem:name,
-                    phy:name,
-                    bio:name,
+                eng:eng,
+                math:math,
+                chem:chem,
+                phy: phy,
+                bio:bio,
                     }],
     
             attend:[{
-                    mon:name,
-                    tue:name,
-                    wed:name,
-                    thu:name,
-                    fri:name,
+                    date:date,
+                    mon:mon,
+                    tue:tue,
+                    wed:wed,
+                    thu:thu,
+                    fri:fri,
                     }],
                             
             exam:[{
-                    eng:name,
-                    math:name,
-                    chem:name,
-                    phy:name,
-                    bio:name,
+                eng:eng,
+                math:math,
+                chem:chem,
+                phy: phy,
+                bio:bio
                     }],
     
             test:[{
-                    eng:name,
-                    math:name,
-                    chem:name,
-                    phy:name,
-                    bio:name,
+                eng:eng,
+                math:math,
+                chem:chem,
+                phy: phy,
+                bio:bio,
                     }],
             assess:[{
-                eng:name,
-                math:name,
-                chem:name,
-                phy:name,
-                bio:name,
+                eng:eng,
+                math:math,
+                chem:chem,
+                phy: phy,
+                bio:bio,
                 }],
                 
                  })
