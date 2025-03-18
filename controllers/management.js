@@ -1,12 +1,10 @@
-const mongoose = require('mongoose');
+
 const {Management} = require("../model/model")
 
 
 const postManagement = async(req,res) => {
     const {name,password,email,user} = req.body
      await Management.create({
-
-            
             name:name,
             user:user,
             password:password,
