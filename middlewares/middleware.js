@@ -9,7 +9,7 @@ exports.studentLogin = async (req,res,next) =>{
     }
     const token = jwt.sign({name:staff},process.env.secret)
     console.log(token)
-    res.json(token)
+    res.send(res.json(token))
     console.log(staff)
     next()
   } catch (error) {
