@@ -28,7 +28,7 @@ managementRouter.put('/push/:_id',putPushManagement)
 managementRouter.delete("/delete/:id", deleteOneManagement)
 
 staffRouter.post('/verify',verify)
-staffRouter.post('/login',studentLogin,verify)
+staffRouter.post('/login',studentLogin)
 staffRouter.post('/',postStaff)
 staffRouter.get('/', getAllStaff)
 staffRouter.get('/:_id', getOneStaff)
