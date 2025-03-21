@@ -11,6 +11,7 @@ exports.verify = async (req,res,next)=>{
        req.name = verified;
        console.log(token)
        console.log("access granted")
+       res.send(res.json("access granted"))
        next()
     } catch (error) {
         console.log(error)
