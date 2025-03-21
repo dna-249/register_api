@@ -1,16 +1,14 @@
 
-const {Management} = require("../model/model")
+const { Management } = require("../model/model")
 
 
 const postManagement = async(req,res) => {
     const {name,password,email,user} = req.body
      await Management.create({
-            name:name,
-            user:user,
-            password:password,
-            email:email,
-   
-                 })
+                                name:name,
+                                user:user,
+                                password:password,
+                                email:email,})
                  console.log("successfully uploaded")
                     
 }

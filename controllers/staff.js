@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const jwt =require("jsonwebtoken")
 const{ Staff} = require("../model/model")
 
 
 const postStaff = async(req,res) => {
     const {name,password,email,user,staff} = req.body
+    
      await Staff.create({
 
        
