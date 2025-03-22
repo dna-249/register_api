@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken")
 const {Staff} =require("../model/model")
-const {Managent} =require("../model/model")
+const {Management} =require("../model/model")
 const {Student} =require("../model/model")
 exports.staffLogin = async (req,res,next) =>{
   try {
@@ -22,7 +22,7 @@ exports.staffLogin = async (req,res,next) =>{
 exports.managementLogin = async (req,res,next) =>{
   try {
     const {name, password,user,email} = req.body;
-    const management = await Managent.findOne({name:name})
+    const management = await Management.findOne({name:name})
     if(!management) {
         res.status(404).json("not found")
     }
