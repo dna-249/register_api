@@ -9,7 +9,8 @@ const {studentRouter,managementRouter, staffRouter} = require("./router/router")
 const corsConfig = {
     origin : ["https://cloud-school-lifecamp.vercel.app"],
     credential : true,
-    methods : ["GET","POST","PUT","DELETE"]
+    methods : ["GET","POST","PUT","DELETE"],
+    headers:["*"]
 }
 
 app.options("",cors(corsConfig))
