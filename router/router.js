@@ -5,12 +5,14 @@ const managementRouter = express.Router()
 const { getOneStudent,putOneStudent, getAllStudent, postStudent,putPullStudent, putPushStudent, deleteOneStudent } = require('../controllers/student');
 const { getOneStaff, putOneStaff, getAllStaff, postStaff,putPullStaff, putPushStaff, deleteOneStaff } = require('../controllers/staff');
 const { getOneManagement,putOneManagement, getAllManagement, postManagement,putPullManagement, putPushManagement, deleteOneManagement } = require('../controllers/management');
-const { studentLogin}=require("../middlewares/middleware")
-const {verify }= require("../middlewares/verify")   
+const { staffLogin,managementLogin,studentLogin}=require("../middlewares/middleware")
+const {staffVerify,managementVerify,studentVerify }= require("../middlewares/verify")   
 
 
 
 
+studentRouter.post('/verify',studentVerify)
+studentRouter.post('/login',studentLogin)
 studentRouter.post('/', postStudent)
 studentRouter.get('/', getAllStudent)
 studentRouter.get('/:_id', getOneStudent)
@@ -19,6 +21,8 @@ studentRouter.put('/pull/:_id', putPullStudent)
 studentRouter.put('/push/:_id',putPushStudent)
 studentRouter.delete("/delete/:id", deleteOneStudent)
 
+managementRouter.post('/verify',managementVerify)
+managementRouter.post('/login',managementLogin)
 managementRouter.post('/', postManagement)
 managementRouter.get('/', getAllManagement)
 managementRouter.get('/:_id', getOneManagement)
@@ -27,8 +31,8 @@ managementRouter.put('/pull/:_id', putPullManagement)
 managementRouter.put('/push/:_id',putPushManagement)
 managementRouter.delete("/delete/:id", deleteOneManagement)
 
-staffRouter.post('/verify',verify)
-staffRouter.post('/login',studentLogin)
+staffRouter.post('/verify',staffVerify)
+staffRouter.post('/login',staffLogin)
 staffRouter.post('/',postStaff)
 staffRouter.get('/', getAllStaff)
 staffRouter.get('/:_id', getOneStaff)
