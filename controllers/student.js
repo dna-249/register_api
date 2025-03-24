@@ -108,16 +108,17 @@ const putPullStudent = async (req,res) => {
 
 const putPushStudent = async (req,res) => {
     const {_id} = req.params;
-    const {name,email,user,password} = req.body;
+    const {date, mon,tue, wed, thu,fri} = req.body;
       await Student.findOneAndUpdate({_id},
         {$push:
           {
-            subject:{
-                eng:name,
-                math:name,
-                chem:name,
-                phy:name,
-                bio:name,
+            attend:{
+                date:date,
+                mon:mon,
+                tue:tue,
+                wed:wed,
+                thu:thu,
+                fri:fri
                 },
         }
       })
