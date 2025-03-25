@@ -17,9 +17,9 @@ studentRouter.post('/', postStudent)
 studentRouter.get('/', getAllStudent)
 studentRouter.get('/:_id', getOneStudent)
 studentRouter.put('/:_id', putOneStudent)
-studentRouter.put('/student/pull/:_id', putPullStudent)
-studentRouter.put('/student/push/:_id',putPushStudent)
-studentRouter.delete("/delete/:id", deleteOneStudent)
+studentRouter.put('/pull/:_id', putPullStudent)
+studentRouter.put('/push/:_id',putPushStudent)
+studentRouter.delete("/delete/:_id", deleteOneStudent)
 
 managementRouter.post('/verify',managementVerify)
 managementRouter.post('/login',managementLogin)
@@ -39,7 +39,7 @@ staffRouter.get('/:_id', getOneStaff)
 staffRouter.put('/:_id', putOneStaff)
 staffRouter.put('/pull/:_id', putPullStaff)
 staffRouter.put('/push/:_id',putPushStaff)
-staffRouter.delete('/delete/:id', deleteOneStaff)
+staffRouter.delete('/delete/:_id', deleteOneStaff)
 
 module.exports = {
                  studentRouter,
