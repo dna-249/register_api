@@ -88,9 +88,7 @@ const putOneStudent =  async(req,res)=>{
            _id.attend.key
         ,{
             $set:{
-                attend:{
                     tue:select3
-                }
             }
         })
         
