@@ -84,10 +84,10 @@ const putOneStudent =  async(req,res)=>{
         const {key} = req.params
         const {_id}=req.params
         const {select3} = req.body
-        const student = await Student.findByIdAndUpdate({_id},{
+        const student = await Student.findByIdAndUpdate({key},{
             $set:{
                 attend:{
-                    _id:key,
+                    tue:select3
                 }
             }
         })
