@@ -84,12 +84,14 @@ const putOneStudent =  async(req,res)=>{
        
         const {_id} = req.params
         const {_id2} = req.params
-        const {tue} = req.body
+        const {select3} = req.body
         const student = await Student.findByIdAndUpdate({_id},{
-            $addToSet:{
-              attend:{_id:_id2}
-            },
-        }, {tue:tue})
+            $set:{
+              attend:[
+                      {_id:_id2},
+                     {tue:select3}]
+            }
+        })
         
         if(!student){
             res.status(404).json("student not found")
