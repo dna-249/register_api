@@ -87,9 +87,9 @@ const putOneStudent =  async(req,res)=>{
         const {tue} = req.body
         const student = await Student.findByIdAndUpdate({_id},{
             $set:{
-              attend:[
-                      {_id:_id2},
-                     {tue:tue}]
+              attend:[{tue:tue},
+                      {_id:_id2}
+                     ]
                 
             }
         })
