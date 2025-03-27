@@ -86,7 +86,7 @@ const putOneStudent =  async(req,res)=>{
         const {_id2} = req.params
         const {select3} = req.body
         const student = await Student.findByIdAndUpdate({_id},{
-            $set:{
+            $addToSet:{
               attend:[
                       {_id:_id2},
                      {tue:select3}]
