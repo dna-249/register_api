@@ -82,13 +82,15 @@ const getOneStudent =  async(req,res)=>{
 const putOneStudent =  async(req,res)=>{
     try {
        
-        const {_id}=req.params
+        const {_id} = req.params
+        const {_id2} = req.params
         const {select3} = req.body
-        const student = await Student.findByIdAndUpdate({_id:ObjectId(_id)},{
+        const student = await Student.findByIdAndUpdate({_id},{
             $set:{
-              attend:{
-                    tue:select3
-                }
+              attend:[
+                      {_id:_id2},
+                     {tue:select3}]
+                
             }
         })
         
