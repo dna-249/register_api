@@ -7,7 +7,7 @@ const postStudent = async(req,res) => {
            eng,math,chem,phy,bio,
            mon,tue,wed,thu,fri,date
     } = req.body
-     await Attend.create({
+     await new Attend({
            
             
             
@@ -18,7 +18,7 @@ const postStudent = async(req,res) => {
                     thu:thu,
                     fri:fri,
                    
-                 })
+                 }).save()
                  res.send("successfully uploaded")
                     
 }
