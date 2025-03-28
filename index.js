@@ -7,7 +7,7 @@ const mongoose = require("mongoose")
 const {studentRouter,managementRouter, staffRouter} = require("./router/router")
 
 const corsConfig = {
-    origin : ["*s"],
+    origin : ["https://cloud-school-lifecamp.vercel.app"],
     credential : true,
     methods : ["GET","POST","PUT","DELETE"],
     headers:["*"]
