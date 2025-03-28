@@ -155,5 +155,5 @@ module.exports = {
      putPullStudent, 
      putPushStudent,
      putOneStudent,
-      deleteOneStudent
+     deleteOneStudent
 }

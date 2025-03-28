@@ -68,5 +68,4 @@ const Management = mongoose.model("Management",management)
 module.exports = {Staff,
                   Student,
                   Management,
-                 
                 };
