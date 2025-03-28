@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {Student, Attend} = require("../model/model")
+const {Student} = require("../model/model")
 
 
 const postStudent = async(req,res) => {
@@ -7,18 +7,54 @@ const postStudent = async(req,res) => {
            eng,math,chem,phy,bio,
            mon,tue,wed,thu,fri,date
     } = req.body
-     await new Attend({
-           
+     await Student.create({
+            adm:adm,
+            name:name,
+            user:user,
+            password:password,
+            email:email,
             
-            
+            subject:[{
+                eng:eng,
+                math:math,
+                chem:chem,
+                phy: phy,
+                bio:bio,
+                    }],
+    
+            attend:[{
                     date:date,
                     mon:mon,
                     tue:tue,
                     wed:wed,
                     thu:thu,
                     fri:fri,
-                   
-                 }).save()
+                    }],
+                            
+            exam:[{
+                eng:eng,
+                math:math,
+                chem:chem,
+                phy: phy,
+                bio:bio
+                    }],
+    
+            test:[{
+                eng:eng,
+                math:math,
+                chem:chem,
+                phy: phy,
+                bio:bio,
+                    }],
+            assess:[{
+                eng:eng,
+                math:math,
+                chem:chem,
+                phy: phy,
+                bio:bio,
+                }],
+                
+                 })
                  res.send("successfully uploaded")
                     
 }

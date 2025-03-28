@@ -1,49 +1,7 @@
 const mongoose = require("mongoose")
 
 
-const Subject = mongoose.Schema({
-                eng:{type:String},
-                math:{type:String},
-                chem:{type:String},
-                phy:{type:String},
-                bio:{type:String},
-                }
-)
 
-const Exam = mongoose.Schema({
-        eng:{type:String},
-        math:{type:String},
-        chem:{type:String},
-        phy:{type:String},
-        bio:{type:String},
-        }
-)
-const Test = mongoose.Schema({
-        eng:{type:String},
-        math:{type:String},
-        chem:{type:String},
-        phy:{type:String},
-        bio:{type:String},
-        }
-)
-
-const Assess = mongoose.Schema({
-        eng:{type:String},
-        math:{type:String},
-        chem:{type:String},
-        phy:{type:String},
-        bio:{type:String},
-        }
-)
-const Attend = mongoose.Schema({
-        date:{type:String},
-        mon:{type:String},
-        tue:{type:String},
-        wed:{type:String},
-        thu:{type:String},
-        fri:{type:String},
-        }
-)
 const student= mongoose.Schema({
 
         adm:{type:String},
@@ -51,11 +9,42 @@ const student= mongoose.Schema({
         user:{type:String},
         password:{type:String},
         email:{type:String},
-        subject:[Subject],
-        attend:[Attend],          
-        exam:[Exam],
-        test:[Test],
-        assess:[Assess],
+        subject:[{
+                eng:{type:String},
+                math:{type:String},
+                chem:{type:String},
+                phy:{type:String},
+                bio:{type:String},
+        }],
+        attend:[{
+                date:{type:String},
+                mon:{type:String},
+                tue:{type:String},
+                wed:{type:String},
+                thu:{type:String},
+                fri:{type:String},
+        }],          
+        exam:[{
+                eng:{type:String},
+                math:{type:String},
+                chem:{type:String},
+                phy:{type:String},
+                bio:{type:String},
+        }],
+        test:[{
+                eng:{type:String},
+                math:{type:String},
+                chem:{type:String},
+                phy:{type:String},
+                bio:{type:String},
+        }],
+        assess:[{
+                eng:{type:String},
+                math:{type:String},
+                chem:{type:String},
+                phy:{type:String},
+                bio:{type:String},
+        }],
 })
 
 const staff = mongoose.Schema({
@@ -79,9 +68,5 @@ const Management = mongoose.model("Management",management)
 module.exports = {Staff,
                   Student,
                   Management,
-                  Subject,
-                  Attend,
-                  Assess,
-                  Test,
-                  Exam
+                 
                 };
