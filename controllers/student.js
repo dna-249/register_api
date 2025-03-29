@@ -134,18 +134,14 @@ const putPushStudent = async (req,res) => {
 
 const putSetStudent = async (req,res) => {
     const {_id} = req.params;
-    const {_id2} = req.params;
-    const {date, mon,tue, wed, thu,fri} = req.body;
+    const { index} = req.params;
+    const {key} = req.params;
+    const {value} = req.body;
     const student =  await Student.findOneAndUpdate({_id},
         {$set:
           {
-           [`attend.${_id2}`]:{
-                date:date,
-                mon:mon,
-                tue:tue,
-                wed:wed,
-                thu:thu,
-                fri:fri
+           [`attend.${index}`]:{
+                [`${key}`]:value
                 },
         }
       })
