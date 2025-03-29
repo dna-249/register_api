@@ -137,7 +137,7 @@ const putSetStudent = async (req,res) => {
     const {_id2} = req.params;
     const {date, mon,tue, wed, thu,fri} = req.body;
     const student =  await Student.findOneAndUpdate({_id},
-        {$set:
+        {$pull:
           {
            [`attend.${_id2}`]:{
                 date:date,
