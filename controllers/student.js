@@ -130,8 +130,7 @@ const putPushStudent = async (req,res) => {
                 },
         }
       })
-                    console.log(res.json())
-                    
+      res.status(200).json(student)  
 }
 
 const deleteOneStudent =  async(req,res)=>{
