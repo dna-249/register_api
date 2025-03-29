@@ -107,9 +107,9 @@ const putPullStudent = async (req,res) => {
     const {eng,math,phy,chem,bio} = req.body;
       await Student.findOneAndUpdate({_id},
         {$pull:
-          {subject:{_id:_id2}}
+          {attend:{_id:_id2}}
       })
-                    res.send("successfully uploaded")
+      res.status(200).json(student)
                     
 }
 
@@ -137,7 +137,7 @@ const putSetStudent = async (req,res) => {
     const {_id2} = req.params;
     const {date, mon,tue, wed, thu,fri} = req.body;
     const student =  await Student.findOneAndUpdate({_id},
-        {$pull:
+        {$set:
           {
            [`attend.${_id2}`]:{
                 date:date,
