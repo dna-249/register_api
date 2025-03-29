@@ -83,7 +83,6 @@ const putOneStudent =  async(req,res)=>{
     try {
        
         const {_id} = req.params
-        const {_id2} = req.params
         const {select3} = req.body
         const student = await Student.findByIdAndUpdate({_id},{
             $push:{
@@ -133,6 +132,26 @@ const putPushStudent = async (req,res) => {
       res.status(200).json(student)  
 }
 
+const putSetStudent = async (req,res) => {
+    const {_id} = req.params;
+    const {_id2} = req.params;
+    const {date, mon,tue, wed, thu,fri} = req.body;
+    const student =  await Student.findOneAndUpdate({_id},
+        {$set:
+          {
+           [`attend.${_id2}`]:{
+                date:date,
+                mon:mon,
+                tue:tue,
+                wed:wed,
+                thu:thu,
+                fri:fri
+                },
+        }
+      })
+      res.status(200).json(student)  
+}
+
 const deleteOneStudent =  async(req,res)=>{
     try {
         const {id}=req.params
@@ -153,6 +172,7 @@ module.exports = {
      postStudent,
      putPullStudent, 
      putPushStudent,
+     putSetStudent,
      putOneStudent,
      deleteOneStudent
 }

@@ -2,7 +2,7 @@ const express = require('express');
 const studentRouter = express.Router()
 const staffRouter = express.Router()
 const managementRouter = express.Router()
-const { getOneStudent,putOneStudent, getAllStudent, postStudent,putPullStudent, putPushStudent, deleteOneStudent } = require('../controllers/student');
+const { getOneStudent,putOneStudent, getAllStudent, postStudent,putSetStudent,putPullStudent, putPushStudent, deleteOneStudent } = require('../controllers/student');
 const { getOneStaff, putOneStaff, getAllStaff, postStaff,putPullStaff, putPushStaff, deleteOneStaff } = require('../controllers/staff');
 const { getOneManagement,putOneManagement, getAllManagement, postManagement,putPullManagement, putPushManagement, deleteOneManagement } = require('../controllers/management');
 const { staffLogin,managementLogin,studentLogin}=require("../middlewares/middleware")
@@ -19,6 +19,7 @@ studentRouter.get('/:_id', getOneStudent)
 studentRouter.put('/:_id', putOneStudent)
 studentRouter.put('/:_id/:_id2', putOneStudent)
 studentRouter.put('/pull/:_id', putPullStudent)
+studentRouter.put('/set/:_id/:_id2', putSetStudent)
 studentRouter.put('/push/:_id',putPushStudent)
 studentRouter.delete("/delete/:_id", deleteOneStudent)
 
