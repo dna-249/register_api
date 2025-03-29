@@ -105,7 +105,7 @@ const putPullStudent = async (req,res) => {
     const {_id} = req.params;
     const {_id2} = req.params;
     const {eng,math,phy,chem,bio} = req.body;
-      await Student.findOneAndUpdate({_id},
+    const student =  await Student.findOneAndUpdate({_id},
         {$pull:
           {attend:{_id:_id2}}
       })
