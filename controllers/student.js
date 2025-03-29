@@ -117,7 +117,7 @@ const putPullStudent = async (req,res) => {
 const putPushStudent = async (req,res) => {
     const {_id} = req.params;
     const {date, mon,tue, wed, thu,fri} = req.body;
-      await Student.findOneAndUpdate({_id},
+    const student =  await Student.findOneAndUpdate({_id},
         {$push:
           {
             attend:{
