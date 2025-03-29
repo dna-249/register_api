@@ -142,7 +142,7 @@ const putSetStudent = async (req,res) => {
         {$set:
           {
            [`attend.${index}.$`]:{
-                [`${key}`]:value
+                [`${key}`]:req.body
                 },
         }
       })
