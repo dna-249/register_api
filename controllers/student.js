@@ -140,7 +140,7 @@ const putSetStudent = async (req,res) => {
     const student =  await Student.findOneAndUpdate({_id},
         {$set:
           {
-           `attend.${index}.${key}`:value
+           [`attend.${index}.${key}`]:value
         }
       })
       res.status(200).json(student)  
