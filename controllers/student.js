@@ -119,14 +119,14 @@ const putPushStudent = async (req,res) => {
     const student =  await Student.findOneAndUpdate({_id},
         {$push:
           {
-            attend:{
+            attend:[{
                 date:date,
                 mon:mon,
                 tue:tue,
                 wed:wed,
                 thu:thu,
                 fri:fri
-                }
+                }]
         }
       })
       res.status(200).json(student)  
