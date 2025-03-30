@@ -87,7 +87,7 @@ const putOneStudent =  async(req,res)=>{
         const student = await Student.findByIdAndUpdate({_id},{
             $push:{
               attend:[
-                     {tue:tue}]
+                     {date:date}]
             }
         })
         
@@ -119,14 +119,7 @@ const putPushStudent = async (req,res) => {
     const student =  await Student.findOneAndUpdate({_id},
         {$push:
           {
-            attend:[{
-                date:date,
-                mon:mon,
-                tue:tue,
-                wed:wed,
-                thu:thu,
-                fri:fri
-                }]
+            attend:[{ date:date }]
         }
       })
       res.status(200).json(student)  
