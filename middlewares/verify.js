@@ -3,18 +3,17 @@ const {Staff} =require("../model/model")
 const {Management} =require("../model/model")
 const {Student} =require("../model/model")
 exports.staffVerify = async (req,res,next)=>{
-    const {header} = req.body
+    const {header,name} = req.body
 
     try {
        const token = await header;
+       const staff = await Staff.findOne({name:name})
        if(!token){
         console.log("access denied")
        } 
        const verified = jwt.verify(token, process.env.secret)
        req.name = verified;
-       console.log(token)
-       console.log("access granted")
-       res.send(res.json("access granted"))
+       res.send(res.json(staff))
        next()
     } catch (error) {
         console.log(error)
@@ -22,18 +21,17 @@ exports.staffVerify = async (req,res,next)=>{
 }
 
 exports.managementVerify = async (req,res,next)=>{
-    const {header} = req.body
+    const {header,name} = req.body
 
     try {
        const token = await header;
+       const management = await Management.findOne({name:name})
        if(!token){
         console.log("access denied")
        } 
        const verified = jwt.verify(token, process.env.secret)
        req.name = verified;
-       console.log(token)
-       console.log("access granted")
-       res.send(res.json("access granted"))
+       res.send(res.json(management))
        next()
     } catch (error) {
         console.log(error)
