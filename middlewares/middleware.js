@@ -45,7 +45,9 @@ exports.studentLogin = async (req,res,next) =>{
     }
     const token = jwt.sign({name:student},process.env.secret)
     console.log(token)
-    res.send(res.json(token))
+    res.send(res.json(token)) 
+    res.send(res.json(student))
+
     console.log(student)
     next()
   } catch (error) {
