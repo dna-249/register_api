@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken")
-
+const {Staff} =require("../model/model")
+const {Management} =require("../model/model")
+const {Student} =require("../model/model")
 exports.staffVerify = async (req,res,next)=>{
     const {header} = req.body
 
@@ -48,9 +50,8 @@ exports.studentVerify = async (req,res,next)=>{
        } 
        const verified = jwt.verify(token, process.env.secret)
        req.name = verified;
-       console.log(token)
-       console.log("access granted")
-       res.send(res.json("access granted"))
+       const student = await Student.findOne(req.name)
+       res.status(200).send(res.json(student))
        next()
     } catch (error) {
         console.log(error)
