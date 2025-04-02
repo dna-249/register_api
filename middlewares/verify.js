@@ -51,7 +51,7 @@ exports.studentVerify = async (req,res,next)=>{
        const verified = jwt.verify(token, process.env.secret)
        req.name = verified;
        const student = await Student.findOne(req.name)
-       res.status(200).send(res.json(student))
+       res.send(res.json(student))
        next()
     } catch (error) {
         console.log(error)
