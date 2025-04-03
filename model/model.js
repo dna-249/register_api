@@ -9,13 +9,7 @@ const student= mongoose.Schema({
         user:{type:String},
         password:{type:String},
         email:{type:String},
-        subject:[{
-                eng:{type:String},
-                math:{type:String},
-                chem:{type:String},
-                phy:{type:String},
-                bio:{type:String},
-        }],
+        class:{type:String},
         attend:[{
                 date:{type:String},
                 mon:{type:String},
@@ -23,28 +17,38 @@ const student= mongoose.Schema({
                 wed:{type:String},
                 thu:{type:String},
                 fri:{type:String},
-        }],          
-        exam:[{
-                eng:{type:String},
-                math:{type:String},
-                chem:{type:String},
-                phy:{type:String},
-                bio:{type:String},
+        }], 
+        Eng:[{
+                exam:{type:String},
+                test:{type:String},
+                ca:{type:String},
+                ass:{type:String},
         }],
-        test:[{
-                eng:{type:String},
-                math:{type:String},
-                chem:{type:String},
-                phy:{type:String},
-                bio:{type:String},
+                 
+        math:[{
+                exam:{type:String},
+                test:{type:String},
+                ca:{type:String},
+                ass:{type:String},
         }],
-        assess:[{
-                eng:{type:String},
-                math:{type:String},
-                chem:{type:String},
-                phy:{type:String},
-                bio:{type:String},
+        chem:[{
+                exam:{type:String},
+                test:{type:String},
+                ca:{type:String},
+                ass:{type:String},
         }],
+        phy:[{
+                exam:{type:String},
+                test:{type:String},
+                ca:{type:String},
+                ass:{type:String},
+        }],
+        bio:[{
+                exam:{type:String},
+                test:{type:String},
+                ca:{type:String},
+                ass:{type:String},
+        }]
 })
 
 const staff = mongoose.Schema({

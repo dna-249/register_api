@@ -3,56 +3,59 @@ const {Student} = require("../model/model")
 
 
 const postStudent = async(req,res) => {
-    const {name,password,email,user,adm,
-           eng,math,chem,phy,bio,
+    const {name,password,email,user,adm,classes,
+           exam,test,ca,ass,
            mon,tue,wed,thu,fri,date
     } = req.body
      await Student.create({
-            adm:adm,
-            name:name,
-            user:user,
-            password:password,
-            email:email,
-            
-            subject:[{
-                eng:eng,
-                math:math,
-                chem:chem,
-                phy: phy,
-                bio:bio,
-                    }],
-    
-            attend:[{
-                    date:date,
-                    mon:mon,
-                    tue:tue,
-                    wed:wed,
-                    thu:thu,
-                    fri:fri,
-                    }],
-                            
-            exam:[{
-                eng:eng,
-                math:math,
-                chem:chem,
-                phy: phy,
-                bio:bio
-                    }],
-    
-            test:[{
-                eng:eng,
-                math:math,
-                chem:chem,
-                phy: phy,
-                bio:bio,
-                    }],
-            assess:[{
-                eng:eng,
-                math:math,
-                chem:chem,
-                phy: phy,
-                bio:bio,
+           
+        adm:adm,
+        name:name,
+        user:user,
+        password:password,
+        email:email,
+        class:classes,
+        attend:[{
+                date:date,
+                mon:mon,
+                tue:tue,
+                wed:wed,
+                thu:thu,
+                fri:fri,
                 }],
+                 
+        Eng:[{
+                exam:exam,
+                test:test,
+                ca:ca,
+                ass:ass,
+        }],
+                 
+        math:[{
+                exam:exam,
+                test:test,
+                ca:ca,
+                ass:ass,
+        }],
+        chem:[{
+                exam:exam,
+                test:test,
+                ca:ca,
+                ass:ass,
+        }],
+        phy:[{
+                exam:exam,
+                test:test,
+                ca:ca,
+                ass:ass,
+        }],
+        bio:[{
+            exam:exam,
+            test:test,
+            ca:ca,
+            ass:ass,
+        }]
+
                 
                  })
                  res.send("successfully uploaded")
