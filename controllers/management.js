@@ -10,7 +10,8 @@ const postManagement = async(req,res) => {
                                 password:password,
                                 email:email,
                                 admissions:[{adm:adm}],
-                                secret:[{key:key}]
+                                management:[{key:key}],
+                                staff:[{key:key}]
                                 })
                  console.log("successfully uploaded")
                     

@@ -64,7 +64,8 @@ const management = mongoose.Schema({
         password:{type:String},
         email:{type:String},
         admissions:[{ adm:{type:String} }],
-        secret:[{  key:{type:String}  }]
+        management:[{  key:{type:String}  }],
+        staff:[{  key:{type:String}  }]
 })
 
 const Student = mongoose.model("student",student)
