@@ -52,12 +52,14 @@ exports.studentLogin = async (req,res,next) =>{
 }
 exports.studentSignup = async (req,res,next) =>{
   try {
+    const {key} =req.params
+    const {value} =req.params
     const {adm} = req.body
-    const admission = await Management.findOne({[`admissions.adm`]:adm})
+    const admission = await Management.findOne({[`${key}.${value}`]:adm})
     if(!admission) {
       res.status(404).json("not found")
   }
-  const token = jwt.sign({[`admissions.adm`]:admission},process.env.secret)
+  const token = jwt.sign({[`${key}.${value}`]:admission},process.env.secret)
   res.send(res.json(token)) 
   next()
   } catch (error) {
