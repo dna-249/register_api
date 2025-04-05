@@ -71,7 +71,7 @@ const putPushManagement = async (req,res) => {
     const {adm} = req.body;
       await Management.findOneAndUpdate({_id},
         {$push:
-            {[`${key}`]:[`${value}`]:adm}
+            {[`${key}`]:{[`${value}`]:adm}}
         }
       )
                     console.log(res.json())
