@@ -3,12 +3,15 @@ const { Management } = require("../model/model")
 
 
 const postManagement = async(req,res) => {
-    const {name,password,email,user} = req.body
+    const {name,password,email,user,adm,key} = req.body
      await Management.create({
                                 name:name,
                                 user:user,
                                 password:password,
-                                email:email,})
+                                email:email,
+                                admissions:[{adm:adm}],
+                                secret:[{key:key}]
+                                })
                  console.log("successfully uploaded")
                     
 }
@@ -54,7 +57,7 @@ const putPullManagement = async (req,res) => {
     const {eng,math,phy,chem,bio} = req.body;
       await Management.findOneAndUpdate({_id},
         {$pull:
-          {subject:{_id:_id2}}
+          {admissions:{_id:_id2}}
       })
                     res.send("successfully uploaded")
                     
@@ -62,8 +65,12 @@ const putPullManagement = async (req,res) => {
 
 const putPushManagement = async (req,res) => {
     const {_id} = req.params;
-    const {name,email,user,password} = req.body;
-      await Management.findOneAndUpdate({_id})
+    const {adm} = req.body;
+      await Management.findOneAndUpdate({_id},
+        {$push:
+            {admissions:{adm:adm}}
+        }
+      )
                     console.log(res.json())
                     
 }
