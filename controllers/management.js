@@ -65,10 +65,12 @@ const putPullManagement = async (req,res) => {
 
 const putPushManagement = async (req,res) => {
     const {_id} = req.params;
+    const {key} = req.params;
+    const {value} = req.params;
     const {adm} = req.body;
       await Management.findOneAndUpdate({_id},
         {$push:
-            {admissions:{adm:adm}}
+            {[`${key}.${value}`]:adm}
         }
       )
                     console.log(res.json())
