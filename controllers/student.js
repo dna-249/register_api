@@ -74,8 +74,8 @@ const getAllStudent = async (req,res) =>{
 
 const getOneStudent =  async(req,res)=>{
     try{
-    const {id} = req.params;
-    const student = await Student.findById(id)
+    const {_id} = req.params;
+    const student = await Student.findById(_id)
     res.status(200).json(student)
     }catch(err){
         res.status(500).json({message: err.message})
