@@ -29,8 +29,8 @@ const getAllManagement = async (req,res) =>{
 
 const getOneManagement  =  async(req,res)=>{
     try{
-    const {id} = req.params;
-    const student = await Management.findById(id)
+    const {_id} = req.params;
+    const student = await Management.findById({_id:_id})
     res.status(200).json(student)
     }catch(err){
         res.status(500).json({message: err.message})
