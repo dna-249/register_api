@@ -11,7 +11,8 @@ const postManagement = async(req,res) => {
                                 email:email,
                                 admissions:[{adm:adm}],
                                 management:[{key:key}],
-                                staff:[{key:key}]
+                                staff:[{key:key}],
+                                classes:[{key:key}]
                                 })
                  console.log("successfully uploaded")
                     
