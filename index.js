@@ -26,7 +26,7 @@ catch(err => console.log(err))
 
 
 app.get("/",(req,res)=>{
-    res.send("hello from backend")
+    res.send("hello my friends from backend")
     
 })
 

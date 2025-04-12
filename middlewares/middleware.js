@@ -54,8 +54,8 @@ exports.studentSignup = async (req,res,next) =>{
   try {
     const {keys} =req.params
     const {value} =req.params
-    const {adm} = req.body
-    const admission = await Management.findOne({[`${keys}.${value}`]:adm || key})
+    const {key} = req.body
+    const admission = await Management.findOne({[`${keys}.${value}`]:key})
     if(!admission && typeof admission === "undefined") {
       res.status(404).json("not found")
   }
