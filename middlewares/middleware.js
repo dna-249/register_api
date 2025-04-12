@@ -52,14 +52,14 @@ exports.studentLogin = async (req,res,next) =>{
 }
 exports.studentSignup = async (req,res,next) =>{
   try {
-    const {key} =req.params
+    const {keys} =req.params
     const {value} =req.params
     const {adm} = req.body
-    const admission = await Management.findOne({[`${key}.${value}`]:adm})
+    const admission = await Management.findOne({[`${keys}.${value}`]:adm || key})
     if(!admission && typeof admission === "undefined") {
       res.status(404).json("not found")
   }
-   else{ jwt.sign({[`${key}.${value}`]:admission},process.env.secret); 
+   else{ jwt.sign({[`${key}.${value}`]:admission}, process.env.secret); 
   next()}
   } catch (error) {
     console.log(error)
