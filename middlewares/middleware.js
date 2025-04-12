@@ -57,7 +57,7 @@ exports.studentSignup = async (req,res,next) =>{
     if(!admission) {
       res.status(404).json("not found")
   }
-    jwt.sign({[`staff.key`]:admission}, process.env.secret); 
+   const token =  jwt.sign({[`staff.key`]:admission}, process.env.secret); 
   next()
   } catch (error) {
     console.log(error)
