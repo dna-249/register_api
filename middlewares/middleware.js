@@ -56,7 +56,7 @@ exports.studentSignup = async (req,res,next) =>{
     const {value} =req.params
     const {adm} = req.body
     const admission = await Management.findOne({[`${key}.${value}`]:adm})
-    if(!admission) {
+    if(!admission && typeof admission === "undefined") {
       res.status(404).json("not found")
   }
   const token = jwt.sign({[`${key}.${value}`]:admission},process.env.secret) 
