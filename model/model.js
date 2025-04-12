@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 
 const student= mongoose.Schema({
 
-        adm:{type:String},
+        key:{type:String},
         name:{type:String},
         user:{type:String},
         password:{type:String},
@@ -69,7 +69,7 @@ const management = mongoose.Schema({
         password:{type:String},
         phone:{type:String},
         email:{type:String},
-        admissions:[{ adm:{type:String} }],
+        admissions:[{ key:{type:String} }],
         management:[{  key:{type:String}  }],
         staff:[{  key:{type:String}  }],
         classes:[{  key:{type:String}  }]
