@@ -63,9 +63,11 @@ const staff = mongoose.Schema({
 })
 
 const management = mongoose.Schema({
+        key:{type:String},
         name:{type:String},
         user:{type:String},
         password:{type:String},
+        phone:{type:String},
         email:{type:String},
         admissions:[{ adm:{type:String} }],
         management:[{  key:{type:String}  }],
