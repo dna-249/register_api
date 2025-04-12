@@ -4,15 +4,18 @@ const{ Staff} = require("../model/model")
 
 
 const postStaff = async(req,res) => {
-    const {name,password,email,user,staff} = req.body
+    const {name,password,email,user,phone,adm,staff,key} = req.body
     
      await Staff.create({
 
        
+        key:key,
         name:name,
         user:user,
         password:password,
+        phone:phone,
         email:email,
+        class:classes,
    
                  })
                  res.send("successfully uploaded")

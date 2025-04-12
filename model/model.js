@@ -8,6 +8,7 @@ const student= mongoose.Schema({
         name:{type:String},
         user:{type:String},
         password:{type:String},
+        phone:{type:String},
         email:{type:String},
         class:{type:String},
         attend:[{
@@ -52,9 +53,12 @@ const student= mongoose.Schema({
 })
 
 const staff = mongoose.Schema({
+        key:{type:String},
         name:{type:String},
         user:{type:String},
+        class:{type:String},
         password:{type:String},
+        phone:{type:String},
         email:{type:String},
 })
 

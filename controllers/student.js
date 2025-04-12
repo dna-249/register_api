@@ -3,7 +3,7 @@ const {Student} = require("../model/model")
 
 
 const postStudent = async(req,res) => {
-    const {name,password,email,user,adm,classes,
+    const {name,password,phone,email,user,adm,classes,
            exam,test,ca,ass,
            mon,tue,wed,thu,fri,date
     } = req.body
@@ -13,6 +13,7 @@ const postStudent = async(req,res) => {
         name:name,
         user:user,
         password:password,
+        phone:phone,
         email:email,
         class:classes,
         attend:[{
