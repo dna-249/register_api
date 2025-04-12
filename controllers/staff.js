@@ -4,7 +4,7 @@ const{ Staff} = require("../model/model")
 
 
 const postStaff = async(req,res) => {
-    const {name,password,email,user,phone,adm,staff,key} = req.body
+    const {name,password,email,classes,user,phone,adm,staff,key} = req.body
     
      await Staff.create({
 
