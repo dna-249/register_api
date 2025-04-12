@@ -59,7 +59,7 @@ exports.studentSignup = async (req,res,next) =>{
     if(!admission && typeof admission === "undefined") {
       res.status(404).json("not found")
   }
-   else{ jwt.sign({[`${key}.${value}`]:admission},process.env.secret) 
+   else{ jwt.sign({[`${key}.${value}`]:admission},process.env.secret); 
   next()}
   } catch (error) {
     console.log(error)
