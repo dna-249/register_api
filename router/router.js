@@ -25,7 +25,7 @@ studentRouter.delete("/delete/:_id", deleteOneStudent)
 
 managementRouter.post('/verify',managementVerify)
 managementRouter.post('/login',managementLogin)
-managementRouter.post('/',postManagement)
+managementRouter.post('/:keys/:value',studentSignup,postManagement)
 managementRouter.get('/', getAllManagement)
 managementRouter.get('/:_id', getOneManagement)
 managementRouter.put('/:_id', putOneManagement)
