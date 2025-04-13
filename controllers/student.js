@@ -9,7 +9,7 @@ const postStudent = async(req,res) => {
     } = req.body
      await Student.create({
            
-        adm:adm,
+        key:adm,
         name:name,
         user:user,
         password:password,
