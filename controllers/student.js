@@ -87,13 +87,7 @@ const putOneStudent =  async(req,res)=>{
     try {
        
         const {_id} = req.params
-        const {date} = req.body
-        const student = await Student.findByIdAndUpdate({_id},{
-            $push:{
-              attend:[
-                     {date:date}]
-            }
-        })
+        const student = await Student.findByIdAndUpdate({_id:_id}, req.body)
         
         if(!student){
             res.status(404).json("student not found")
