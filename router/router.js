@@ -5,7 +5,7 @@ const managementRouter = express.Router()
 const { getOneStudent,putOneStudent, getAllStudent, postStudent,putSetStudent,putPullStudent, putPushStudent, deleteOneStudent } = require('../controllers/student');
 const { getOneStaff, putOneStaff, getAllStaff, postStaff,putPullStaff, putPushStaff, deleteOneStaff } = require('../controllers/staff');
 const { getOneManagement,putOneManagement, getAllManagement, postManagement,putPullManagement, putPushManagement, deleteOneManagement } = require('../controllers/management');
-const { staffLogin,managementLogin,studentLogin, studentSignup}=require("../middlewares/middleware")
+const { staffLogin,managementLogin,studentLogin,managementSignup,staffSignup, studentSignup}=require("../middlewares/middleware")
 const {staffVerify,managementVerify,studentVerify }= require("../middlewares/verify")   
 
 
@@ -13,7 +13,7 @@ const {staffVerify,managementVerify,studentVerify }= require("../middlewares/ver
 
 studentRouter.post('/verify',studentVerify)
 studentRouter.post('/login',studentLogin)
-studentRouter.post('/:keys/:value',studentSignup, postStudent)
+studentRouter.post('/',studentSignup, postStudent)
 studentRouter.get('/', getAllStudent)
 studentRouter.get('/:_id', getOneStudent)
 studentRouter.put('/:_id', putOneStudent)
@@ -25,7 +25,7 @@ studentRouter.delete("/delete/:_id", deleteOneStudent)
 
 managementRouter.post('/verify',managementVerify)
 managementRouter.post('/login',managementLogin)
-managementRouter.post('/',postManagement)
+managementRouter.post('/',managementSignup,postManagement)
 managementRouter.get('/', getAllManagement)
 managementRouter.get('/:_id', getOneManagement)
 managementRouter.put('/:_id', putOneManagement)
@@ -35,7 +35,7 @@ managementRouter.delete("/delete/:_id", deleteOneManagement)
 
 staffRouter.post('/verify',staffVerify)
 staffRouter.post('/login',staffLogin)
-staffRouter.post('/:keys/:value',studentSignup, postStaff)
+staffRouter.post('/',staffSignup, postStaff)
 staffRouter.get('/', getAllStaff)
 staffRouter.get('/:_id', getOneStaff)
 staffRouter.put('/:_id', putOneStaff)

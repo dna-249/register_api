@@ -52,14 +52,40 @@ exports.studentLogin = async (req,res,next) =>{
 }
 exports.studentSignup = async (req,res,next) =>{
   try {
-    const {keys} =req.params
-    const {value} =req.params
     const {key} = req.body
-    const admission = await Management.findOne({[`${keys}.${value}`]:key})
+    const admission = await Management.findOne({[`admissions.key`]:key})
     if(!admission) {
       res.status(404).json("not found")
   } else{
-    jwt.sign({[`${keys}.${value}`]:admission}, process.env.secret); 
+    jwt.sign({[`admissions.key`]:admission}, process.env.secret); 
+  next()}
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+exports.staffSignup = async (req,res,next) =>{
+  try {
+    const {key} = req.body
+    const admission = await Management.findOne({[`staff.key`]:key})
+    if(!admission) {
+      res.status(404).json("not found")
+  } else{
+    jwt.sign({[`staff.key`]:admission}, process.env.secret); 
+  next()}
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+exports.managementSignup = async (req,res,next) =>{
+  try {
+    const {key} = req.body
+    const admission = await Management.findOne({[`management.key`]:key})
+    if(!admission) {
+      res.status(404).json("not found")
+  } else{
+    jwt.sign({[`management.key`]:admission}, process.env.secret); 
   next()}
   } catch (error) {
     console.log(error)
