@@ -20,7 +20,6 @@ studentRouter.put('/student:_id', putOneStudent)
 studentRouter.put('/:_id/:_id2', putOneStudent)
 studentRouter.put('/pull/:_id/:_id2', putPullStudent)
 studentRouter.put('/set/:_id/:object/:index/:key', putSetStudent)
-studentRouter.put('/:_id',putPushStudent)
 studentRouter.delete("/delete/:_id", deleteOneStudent)
 
 managementRouter.post('/verify',managementVerify)
