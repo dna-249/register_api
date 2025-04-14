@@ -114,12 +114,12 @@ const putPullStudent = async (req,res) => {
 const putPushStudent = async (req,res) => {
 try {
     const {_id} = req.params
-    const {date} = req.body
-    if(date !== ""){
+    
+    if(typeof req.body.date !== "undefined"){
     const student = await Student.findByIdAndUpdate({_id:_id},{
         $push:{
           attend:[
-                 {date:date}]
+                 {date:req.body.date}]
         }
     })
       res.status(200).json(student)}
