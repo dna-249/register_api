@@ -112,15 +112,19 @@ const putPullStudent = async (req,res) => {
 }
 
 const putPushStudent = async (req,res) => {
-    const {_id} = req.params;
-    const {date, mon,tue, wed, thu,fri} = req.body;
-    const student =  await Student.findByIdAndUpdate({_id:_id},
-        {$push:
-          {
-            attend:[{ date:date }]
+try {
+    const {_id} = req.params
+    const {date} = req.body
+    const student = await Student.findByIdAndUpdate({_id:_id},{
+        $push:{
+          attend:[
+                 {date:date}]
         }
-      })
-      res.status(200).json(student)  
+    })
+      res.status(200).json(student)
+    } catch (error) {
+        console.log(error) 
+     }  
 }
 
 const putSetStudent = async (req,res) => {
