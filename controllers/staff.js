@@ -102,8 +102,17 @@ const getOneStaff =  async(req,res)=>{
 
 const putOneStaff =  async(req,res)=>{
     try {
-        const {_id}=req.params
-        const student = await Staff.findByIdAndUpdate(_id, req.body)
+        const {_id}=req.params   
+         const {object2}=req.params
+        const {date,term,session}  = req.body
+        const student = await Staff.findByIdAndUpdate({_id:_id}, {
+            $push:{
+                [`${object2}`]:[{data:date},
+                               {term:term},
+                               {session:session}
+                ]
+            }
+        })
         
         if(!student){
             res.status(404).json("student not found")
