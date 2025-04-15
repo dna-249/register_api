@@ -60,6 +60,62 @@ const staff = mongoose.Schema({
         password:{type:String},
         phone:{type:String},
         email:{type:String},
+        Eng:[{
+              question:{type:String},
+              a:{type:String},
+              b:{type:String},
+              c:{type:String},
+              d:{type:String},
+              ans:{type:String},
+              session:{type:String},
+              term:{type:String},
+              data:{type:String}
+        }],
+       
+           math:[{
+                question:{type:String},
+                a:{type:String},
+                b:{type:String},
+                c:{type:String},
+                d:{type:String},
+                ans:{type:String},
+                session:{type:String},
+                term:{type:String},
+                data:{type:String}
+          }],
+           chem:[{
+                question:{type:String},
+                a:{type:String},
+                b:{type:String},
+                c:{type:String},
+                d:{type:String},
+                ans:{type:String},
+                session:{type:String},
+                term:{type:String},
+                data:{type:String}
+          }],
+           phy:[{
+                question:{type:String},
+                a:{type:String},
+                b:{type:String},
+                c:{type:String},
+                d:{type:String},
+                ans:{type:String},
+                session:{type:String},
+                term:{type:String},
+                data:{type:String}
+          }],
+           bio:[{
+              question:{type:String},
+              a:{type:String},
+              b:{type:String},
+              c:{type:String},
+              d:{type:String},
+              ans:{type:String},
+              session:{type:String},
+              term:{type:String},
+              data:{type:String}
+        }]
 })
 
 const management = mongoose.Schema({

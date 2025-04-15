@@ -4,7 +4,9 @@ const{ Staff} = require("../model/model")
 
 
 const postStaff = async(req,res) => {
-    const {name,password,email,classes,user,phone,adm,staff,key} = req.body
+    const {name,password,email,classes,user,phone,adm,staff,key,
+          question,ans, a,b,c,d,session,term,date
+    } = req.body
     
      await Staff.create({
 
@@ -16,6 +18,62 @@ const postStaff = async(req,res) => {
         phone:phone,
         email:email,
         class:classes,
+       
+      Eng:[{
+        question:question,
+        a:a,
+        b:b,
+        c:c,
+        d:d,
+        ans:ans,
+        session:session,
+        term:term,
+        data:date
+  }],
+  math:[{
+    question:question,
+    a:a,
+    b:b,
+    c:c,
+    d:d,
+    ans:ans,
+    session:session,
+    term:term,
+    data:date
+}],
+chem:[{
+    question:question,
+    a:a,
+    b:b,
+    c:c,
+    d:d,
+    ans:ans,
+    session:session,
+    term:term,
+    data:date
+}],
+phy:[{
+    question:question,
+    a:a,
+    b:b,
+    c:c,
+    d:d,
+    ans:ans,
+    session:session,
+    term:term,
+    data:date
+}],
+bio:[{
+    question:question,
+    a:a,
+    b:b,
+    c:c,
+    d:d,
+    ans:ans,
+    session:session,
+    term:term,
+    data:date
+}]
    
                  })
                  res.send("successfully uploaded")
@@ -55,6 +113,21 @@ const putOneStaff =  async(req,res)=>{
     } catch (error) {
        res.status(500).json({message:error.message}) 
     }
+}
+
+const putSetStaff = async (req,res) => {
+    const {_id} = req.params;
+    const {object} = req.params;
+    const {key} = req.params;
+    const {index} = req.params;
+    const {value} = req.body;
+    const student =  await Staff.findOneAndUpdate({_id:_id},
+        {$set:
+          {
+           [`${object}.${index}.${key}`]:value
+        }
+      })
+      res.status(200).json(student)  
 }
 
 const putPullStaff = async (req,res) => {
@@ -98,5 +171,6 @@ module.exports = {
       postStaff,
       putPullStaff,
        putPushStaff, 
-       deleteOneStaff
+       deleteOneStaff,
+       putSetStaff
 }
