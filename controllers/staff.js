@@ -113,15 +113,15 @@ const putOneStaff =  async(req,res)=>{
         const student = await Staff.findByIdAndUpdate({_id:_id}, {
             $push:{
                 [`${object2}`]:[{question:question,
-                                a:a,
-                                b:b,
-                                c:c,
-                                d:d,
-                                ans:ans,
-                                session:session,
-                                term:term,
-                                date:date,
-                                type:type}]
+                                    a:a,
+                                    b:b,
+                                    c:c,
+                                    d:d,
+                                    ans:ans,
+                                    session:session,
+                                    term:term,
+                                    date:date,
+                                    type:type}]
             }
         })
         
@@ -153,10 +153,11 @@ const putSetStaff = async (req,res) => {
 const putPullStaff = async (req,res) => {
     const {_id} = req.params;
     const {_id2} = req.params;
+     const {object2}=req.params
     const {eng,math,phy,chem,bio} = req.body;
       await Staff.findOneAndUpdate({_id},
         {$pull:
-          {subject:{_id:_id2}}
+          {[`${object2}`]:{_id:_id2}}
       })
                     res.send("successfully uploaded")
                     
