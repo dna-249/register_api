@@ -5,7 +5,7 @@ const{ Staff} = require("../model/model")
 
 const postStaff = async(req,res) => {
     const {name,password,email,classes,user,phone,adm,staff,key,
-          question,ans, a,b,c,d,session,term,date
+          question,ans, a,b,c,d,session,term,date,type
     } = req.body
     
      await Staff.create({
@@ -28,7 +28,8 @@ const postStaff = async(req,res) => {
         ans:ans,
         session:session,
         term:term,
-        data:date
+        date:date,
+        type:type
   }],
   math:[{
     question:question,
@@ -39,7 +40,8 @@ const postStaff = async(req,res) => {
     ans:ans,
     session:session,
     term:term,
-    data:date
+    date:date,
+    type:type
 }],
 chem:[{
     question:question,
@@ -50,7 +52,8 @@ chem:[{
     ans:ans,
     session:session,
     term:term,
-    data:date
+    date:date,
+    type:type
 }],
 phy:[{
     question:question,
@@ -61,7 +64,8 @@ phy:[{
     ans:ans,
     session:session,
     term:term,
-    data:date
+    date:date,
+    type:type
 }],
 bio:[{
     question:question,
@@ -72,7 +76,8 @@ bio:[{
     ans:ans,
     session:session,
     term:term,
-    data:date
+    date:date,
+    type:type
 }]
    
                  })
@@ -104,14 +109,10 @@ const putOneStaff =  async(req,res)=>{
     try {
         const {_id}=req.params   
          const {object2}=req.params
-        const {date,term,session}  = req.body
+        const {date,term,session,type}  = req.body
         const student = await Staff.findByIdAndUpdate({_id:_id}, {
             $push:{
-                [`${object2}`]:[{data:date},
-                               {term:term},
-                               {session:session}
-                ]
-            }
+                [`${object2}`]:{date:date}}
         })
         
         if(!student){

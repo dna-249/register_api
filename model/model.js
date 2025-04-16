@@ -69,7 +69,8 @@ const staff = mongoose.Schema({
               ans:{type:String},
               session:{type:String},
               term:{type:String},
-              data:{type:String}
+              date:{type:String},
+              type:{type:String}
         }],
        
            math:[{
@@ -81,7 +82,8 @@ const staff = mongoose.Schema({
                 ans:{type:String},
                 session:{type:String},
                 term:{type:String},
-                data:{type:String}
+                date:{type:String},
+                type:{type:String}
           }],
            chem:[{
                 question:{type:String},
@@ -92,7 +94,8 @@ const staff = mongoose.Schema({
                 ans:{type:String},
                 session:{type:String},
                 term:{type:String},
-                data:{type:String}
+                date:{type:String},
+                type:{type:String}
           }],
            phy:[{
                 question:{type:String},
@@ -103,7 +106,8 @@ const staff = mongoose.Schema({
                 ans:{type:String},
                 session:{type:String},
                 term:{type:String},
-                data:{type:String}
+                date:{type:String},
+                type:{type:String}
           }],
            bio:[{
               question:{type:String},
@@ -114,7 +118,8 @@ const staff = mongoose.Schema({
               ans:{type:String},
               session:{type:String},
               term:{type:String},
-              data:{type:String}
+              date:{type:String},
+              type:{type:String}
         }]
 })
 
