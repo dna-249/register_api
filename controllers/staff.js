@@ -105,6 +105,22 @@ const getOneStaff =  async(req,res)=>{
     }
 }
 
+const putOneStaffClass =  async(req,res)=>{
+    try {
+        const {_id}=req.params   
+        const student = await Staff.findByIdAndUpdate({_id:_id}, req.body)
+        
+        if(!student){
+            res.status(404).json("student not found")
+        }
+
+        res.status(200).json(student)
+    } catch (error) {
+       res.status(500).json({message:error.message}) 
+    }
+}
+
+
 const putOneStaff =  async(req,res)=>{
     try {
         const {_id}=req.params   
@@ -186,6 +202,7 @@ const deleteOneStaff =  async(req,res)=>{
 }
 
 module.exports = {
+    putOneStaffClass,
     getOneStaff,
     putOneStaff,
      getAllStaff,

@@ -3,7 +3,7 @@ const studentRouter = express.Router()
 const staffRouter = express.Router()
 const managementRouter = express.Router()
 const { getOneStudent,putOneStudent, getAllStudent, postStudent,putSetStudent,putPullStudent, putPushStudent, deleteOneStudent } = require('../controllers/student');
-const { getOneStaff, putSetStaff,putOneStaff, getAllStaff, postStaff,putPullStaff, putPushStaff, deleteOneStaff } = require('../controllers/staff');
+const { getOneStaff, putSetStaff,putOneStaff, getAllStaff, postStaff,putPullStaff, putPushStaff, deleteOneStaff, putOneStaffClass } = require('../controllers/staff');
 const { getOneManagement,putOneManagement, getAllManagement, postManagement,putPullManagement, putPushManagement, deleteOneManagement } = require('../controllers/management');
 const { staffLogin,managementLogin,studentLogin,managementSignup,staffSignup, studentSignup}=require("../middlewares/middleware")
 const { staffVerify,managementVerify,studentVerify }= require("../middlewares/verify")   
@@ -37,6 +37,7 @@ staffRouter.post('/login',staffLogin)
 staffRouter.post('/',staffSignup, postStaff)
 staffRouter.get('/', getAllStaff)
 staffRouter.get('/:_id', getOneStaff)
+staffRouter.put('/:_id', putOneStaffClass)
 staffRouter.put('/:_id/:object2', putOneStaff)
 staffRouter.put('/pull/:_id/:_id2/:object2', putPullStaff)
 staffRouter.put('/push/:_id',putPushStaff)
