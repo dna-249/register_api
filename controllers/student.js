@@ -4,7 +4,7 @@ const {Student} = require("../model/model")
 
 const postStudent = async(req,res) => {
     const {name,password,phone,email,user,key,classes,
-           exam,test,ca,ass,
+           exam,test,ca,ass,image,
            mon,tue,wed,thu,fri,date
     } = req.body
      await Student.create({
@@ -16,6 +16,7 @@ const postStudent = async(req,res) => {
         phone:phone,
         email:email,
         class:classes,
+        image:image,
         attend:[{
                 date:date,
                 mon:mon,

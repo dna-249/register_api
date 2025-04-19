@@ -3,7 +3,7 @@ const { Management } = require("../model/model")
 
 
 const postManagement = async(req,res) => {
-    const {name,phone,password,email,user,adm,key} = req.body
+    const {name,phone,password,email,user,adm,key,image} = req.body
      await Management.create({
                                 key:key,
                                 name:name,
@@ -11,6 +11,7 @@ const postManagement = async(req,res) => {
                                 password:password,
                                 phone:phone,
                                 email:email,
+                                image:image,
                                 admissions:[{adm:adm}],
                                 management:[{key:key}],
                                 staff:[{key:key}],
